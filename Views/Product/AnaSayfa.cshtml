@@ -1,0 +1,40 @@
+﻿@*@model  List<_23haziran_web.Models.Product>
+
+
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title></title>
+    </head>
+    <body>
+    <ul>
+        @foreach (var product in Model)
+        {
+            <li>@product.ProductName</li>
+            <li>@product.Id</li>
+            <li>@product.Quantity</li>
+        }
+    </ul>
+    </body>
+    </html>*@
+
+<h3>VİEW BAG</h3>
+<ul>
+    @foreach (var product in ViewBag.dogukan)// as List<_23haziran_web.Models.Product>) // burayı eklersen product. koyduktan sonra özellikler(id,productname)falan gelir
+                                                                                        //eğer eklemezsen gelmez ama çalışır çünkü runtime da işleniyor
+    {
+        <li>@product.ProductName</li>
+        <li>@product.Id</li>
+        <li>@product.Quantity</li>
+    }
+</ul>
+
+<h3>VİEWDATA</h3>
+@foreach (var product in ViewData["dogukan"] as List<_23haziran_web.Models.Product>) //unboxing yapıldı
+{
+    <li>@product.ProductName</li>
+}  
+<h3>TEMPDATA</h3>
+@foreach (var product in TempData["products"] as List<_23haziran_web.Models.Product>)
+{
+    <li>@product.ProductName</li>
+}

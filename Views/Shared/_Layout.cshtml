@@ -1,0 +1,35 @@
+﻿@addTagHelper * , Microsoft.AspNetCore.Mvc.TagHelpers
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebApplication2</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    @*<partial name="~/Views/Product/Partials/_HeaderPartial.cshtml" model="@ViewBag.Data" />*@
+    <partial name="~/Views/Product/Partials/_HeaderPartial.cshtml" />
+    <div class="row">
+        <div class="col-md2">
+            @RenderSection("solmenu", required: false)
+        </div>
+        <div class="row md-8">
+            @RenderBody()
+        </div>
+    </div>
+    @*<partial name="~/Views/Product/Partials/_FooterPartial.cshtml" />
+
+        await diyerek gerekli işlemi asenkron olarak çalışıyoruz*@
+    @await Component.InvokeAsync("Footer")
+    @*değerlere viewcomponent üzerinden müdahale edilebilir ikinci parametreye {id =5 }diyelim daha sonra ilgili componentin cs dosyasına gidip ınvoke(int id)
+    dedikten sonra 5 değerini orada görürüz yani 5 numaralı id ye müdahale edilir
+    post get form işlemleri yapılamaz çünkü controller yoktur*@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)   @*rendersection bazen  kullanılıp bazen kullanılmayacaksa req false olmalıdır true olursa her zaman view karşılık  bekler *@
+</body>
+</html>

@@ -1,0 +1,16 @@
+﻿<footer class="border-top footer text-muted">
+    <div class="container">
+        &copy; 2021 - WebApplication2 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </div>
+
+    @foreach (var product in @ViewBag.Veri)
+    {
+        <ul>
+            <li>@product.ProductName</li>
+            <li>@product.Id</li>
+            <li>@product.Quantity</li>
+
+        </ul>
+    }
+
+</footer>

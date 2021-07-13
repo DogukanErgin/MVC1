@@ -1,0 +1,50 @@
+﻿@addTagHelper * , Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper * ,23haziran-web
+
+
+@*
+    UI tabanlı 
+  
+    cs+html = Razor css+html i birleştirir tek dosya üzerinde kullanılır.
+    Razor html içinde C# kodlarını kullanmamızı sağlar 
+   
+*@
+
+
+
+<h3>Naber ben getproducts view'i yim'</h3>
+@Html.Partial("~/Views/Product/Partials/ListPartial.cshtml", new _23haziran_web.Models.Product()) 
+@Html.ActionLink("Link_lan_bu","GetprOducts","PRoduct")
+<br />
+<h3>tag helper ile partial</h3>
+<partial name="~/Views/Product/Partials/ListPartial.cshtml" />
+<br/>
+
+<h3>Tag Helper</h3>   
+
+<form asp-action="GetProducts" asp-controller="Product" method="post">
+    <input type="text" />
+    <br />
+    <select>
+        <option value="value">text</option>
+    </select>
+    <br />
+    <cache>
+        Cache : @DateTime.Now
+    </cache>
+    <br />
+    @DateTime.Now
+
+
+    <br />
+
+    <a href="mailto:d35ergin@hotmail.com">Email</a>
+    <br />
+    <email></email>
+    <email-gonder-form a="abc" mail="d35ergin@hotmail.com" display="Doğukan Ergin Mail'i'"></email-gonder-form>
+    <mail a="abc" mail="d35ergin@hotmail.com"  display="Doğukan Ergin Mail'i'"></mail>
+
+</form>
+
+<br />
+
